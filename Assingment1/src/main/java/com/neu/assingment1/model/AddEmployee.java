@@ -30,7 +30,7 @@ public class AddEmployee {
        return newEmployee;
    }
    
-   public Employee deleteEmployee(){
+   public Employee deleteEmployee(boolean emp){
        Employee newEmployee = new Employee();
        employee_list.remove(newEmployee);
        return newEmployee;
