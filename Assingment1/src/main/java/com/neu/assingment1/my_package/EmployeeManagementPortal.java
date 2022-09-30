@@ -6,7 +6,7 @@ package com.neu.assingment1.my_package;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import com.neu.assingment1.model.AddEmployee;
+import com.neu.assingment1.model.EmployeeFunctionality;
 import com.neu.assingment1.model.Employee;
 import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
@@ -18,13 +18,13 @@ import javax.swing.table.TableRowSorter;
 public class EmployeeManagementPortal extends javax.swing.JFrame {
 
     
-    AddEmployee add_emp;
+    EmployeeFunctionality add_emp;
     private TableRowSorter<DefaultTableModel> sorter;
     
 
     public EmployeeManagementPortal() {
                 initComponents();
-                add_emp= new AddEmployee();
+                add_emp= new EmployeeFunctionality();
 
                     
                 
@@ -737,6 +737,9 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    //function when user clicks add button
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         String name = txtEmployeeName.getText();
         String employeeID = txtEmployeeID.getText();
@@ -763,6 +766,17 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
         employeeTable();
         JOptionPane.showMessageDialog(addBtn,"Employee data is successfully added");
         jTabbedPane1.setSelectedIndex(3);
+        
+        txtEmployeeName.setText("");
+        txtEmployeeID.setText("");
+        txtEmployeeAge.setText("");
+        txtEmployeeGender.setSelectedIndex(0);
+        txtEmployeeStartDate.setText("");
+        txtEmployeeTeam.setText("");
+        txtEmployeeLevel.setSelectedIndex(0);
+        txtEmployeePosition.setText("");
+        txtEmployeeContactNo.setText("");
+        txtEmployeeEmailID.setText("");
 
 
         //    String photo;                   // TODO add your handling code here:
@@ -804,6 +818,9 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmployeeNameActionPerformed
 
+    
+    
+    //function when user clicks delete button
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
 
         String deleteEmployeeID = delEmployeeID.getText();
@@ -813,11 +830,9 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
         for(Employee emp: add_emp.getEmployee_list()) {
             if(emp.getEmployeeID().equals(deleteEmployeeID)) {
                 temp = emp;
-                System.out.println(temp.getEmployeeID());
 
             }
         }
-        System.out.println(temp.getEmployeeID());
         add_emp.getEmployee_list().remove(temp);
         JOptionPane.showMessageDialog(deleteBtn,"Employee data is successfully deleted");
         jTabbedPane1.setSelectedIndex(3);
@@ -863,6 +878,9 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_editEmployeeContactNoActionPerformed
 
+    
+    
+    //function when user clicks edit button
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
         int edit = employeeTable.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel) employeeTable.getModel();
@@ -878,20 +896,29 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
             model.setValueAt(editEmployeeContactNo.getText(), edit, 8);
             model.setValueAt(editEmployeeEmailID.getText(), edit, 9);
             jTabbedPane1.setSelectedIndex(3);
+            
+        editEmployeeName.setText("");
+        editEmployeeID.setText("");
+        editEmployeeAge.setText("");
+        editEmployeeGender.setSelectedIndex(0);
+        editEmployeeStartDate.setText("");
+        editEmployeeTeam.setText("");
+        editEmployeeLevel.setSelectedIndex(0);
+        editEmployeePosition.setText("");
+        editEmployeeContactNo.setText("");
+        editEmployeeEmailID.setText("");
 
         }
         else{
-            JOptionPane.showMessageDialog(null,"Error");
+            JOptionPane.showMessageDialog(null,"Please select a row from the table");
         }
 
-//        System.out.println(selected+"this is");
-//
-//        editEmployeeName.setText(model.getValueAt(selected,1).toString());
-//
-//        
+     
 // TODO add your handling code here:
     }//GEN-LAST:event_editBtnActionPerformed
 
+    
+  //function when user clicks cancel button(Edit)
     private void editCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCancelBtnActionPerformed
         // TODO add your handling code here:
         editEmployeeName.setText("");
@@ -907,6 +934,8 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_editCancelBtnActionPerformed
 
+    
+//function when user clicks search button
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         DefaultTableModel model = (DefaultTableModel) employeeTable.getModel();
         sorter = new TableRowSorter<>(model);
@@ -926,6 +955,9 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_searchBtnActionPerformed
 
+    
+    
+//function to populate row-content of table to edit page
     private void employeeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeTableMouseClicked
         int selected = employeeTable.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel) employeeTable.getModel();
@@ -986,8 +1018,11 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_employeeTableMouseClicked
 
+    
+      //function when user clicks cancel button(Add)
+
     private void addCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCancelBtnActionPerformed
-         txtEmployeeName.setText("");
+        txtEmployeeName.setText("");
         txtEmployeeID.setText("");
         txtEmployeeAge.setText("");
         txtEmployeeGender.setSelectedIndex(0);
@@ -1000,8 +1035,18 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_addCancelBtnActionPerformed
 
+    
+ //function when user clicks cancel button(Search)
     private void searchCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCancelBtnActionPerformed
         searchField.setText("");
+
+        DefaultTableModel model = (DefaultTableModel) employeeTable.getModel();
+        sorter = new TableRowSorter<>(model);
+        employeeTable.setRowSorter(sorter);
+        sorter.setRowFilter(null);
+        jTabbedPane1.setSelectedIndex(3);
+
+
         // TODO add your handling code here:
     }//GEN-LAST:event_searchCancelBtnActionPerformed
 
@@ -1041,6 +1086,8 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
         });
     }
     
+    
+//function to add content to the table    
     private void employeeTable(){
         DefaultTableModel model = (DefaultTableModel) employeeTable.getModel();
         model.setRowCount(0);

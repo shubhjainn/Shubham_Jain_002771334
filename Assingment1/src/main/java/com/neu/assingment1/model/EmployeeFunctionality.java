@@ -10,9 +10,9 @@ import java.util.ArrayList;
  *
  * @author shubhamjain
  */
-public class AddEmployee {
+public class EmployeeFunctionality {
     private ArrayList<Employee> employee_list;
-    public AddEmployee(){
+    public EmployeeFunctionality(){
         this.employee_list= new ArrayList<Employee>();
     }
 
