@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model;
+package com.neu.assingment1.model;
 
 import java.util.ArrayList;
 
@@ -30,10 +30,7 @@ public class AddEmployee {
        return newEmployee;
    }
    
-   public Employee deleteEmployee(boolean emp){
-       Employee newEmployee = new Employee();
-       employee_list.remove(newEmployee);
-       return newEmployee;
-   }
+   
+   
     
 }
