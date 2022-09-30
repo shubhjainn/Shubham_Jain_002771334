@@ -8,6 +8,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import com.neu.assingment1.model.AddEmployee;
 import com.neu.assingment1.model.Employee;
+import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
         
 /**
  *
@@ -17,6 +19,7 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
 
     
     AddEmployee add_emp;
+    private TableRowSorter<DefaultTableModel> sorter;
     
 
     public EmployeeManagementPortal() {
@@ -102,7 +105,7 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        searchField = new javax.swing.JTextField();
         searchBtn = new javax.swing.JButton();
         searchCancelBtn = new javax.swing.JButton();
 
@@ -672,6 +675,11 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
 
         searchCancelBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         searchCancelBtn.setText("Cancel");
+        searchCancelBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchCancelBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -692,7 +700,7 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
                                 .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(193, 193, 193)
                                 .addComponent(searchCancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(271, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -703,7 +711,7 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -814,11 +822,6 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(deleteBtn,"Employee data is successfully deleted");
         jTabbedPane1.setSelectedIndex(3);
         employeeTable();
-
-        
-   
-
-        System.out.println("deletedddddd...");
         
 
         
@@ -874,6 +877,8 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
             model.setValueAt(editEmployeePosition.getText(), edit, 7);
             model.setValueAt(editEmployeeContactNo.getText(), edit, 8);
             model.setValueAt(editEmployeeEmailID.getText(), edit, 9);
+            jTabbedPane1.setSelectedIndex(3);
+
         }
         else{
             JOptionPane.showMessageDialog(null,"Error");
@@ -903,7 +908,22 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
     }//GEN-LAST:event_editCancelBtnActionPerformed
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) employeeTable.getModel();
+        sorter = new TableRowSorter<>(model);
+        employeeTable.setRowSorter(sorter);
+        String searchText= searchField.getText();
+        if(searchText.length()==0){
+            sorter.setRowFilter(null);
+        }
+        else{
+            sorter.setRowFilter(RowFilter.regexFilter(searchText));
+            jTabbedPane1.setSelectedIndex(3);
+       
+
+        }
+
+
+// TODO add your handling code here:
     }//GEN-LAST:event_searchBtnActionPerformed
 
     private void employeeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeTableMouseClicked
@@ -979,6 +999,11 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
         txtEmployeeEmailID.setText("");
 // TODO add your handling code here:
     }//GEN-LAST:event_addCancelBtnActionPerformed
+
+    private void searchCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCancelBtnActionPerformed
+        searchField.setText("");
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchCancelBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1091,10 +1116,10 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelDisplay1;
     private javax.swing.JButton searchBtn;
     private javax.swing.JButton searchCancelBtn;
+    private javax.swing.JTextField searchField;
     private javax.swing.JLabel test;
     private javax.swing.JTextField txtEmployeeAge;
     private javax.swing.JTextField txtEmployeeContactNo;
