@@ -4,6 +4,8 @@
  */
 package com.neu.assingment1.model;
 
+import java.util.Date;
+
 /**
  *
  * @author shubhamjain
@@ -13,13 +15,12 @@ public class Employee {
    private String employeeID;
    private String age;
    private String gender;
-   private String startDate;
+   private Date startDate;
    private String level;
    private String teamInfo;
    private String position;
    private String phone;
    private String emailID;
-   private String photo;
 
     public String getName() {
         return name;
@@ -53,11 +54,11 @@ public class Employee {
         this.gender = gender;
     }
 
-    public String getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
@@ -100,18 +101,11 @@ public class Employee {
     public void setEmailID(String emailID) {
         this.emailID = emailID;
     }
-
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
+    
 
     @Override
     public String toString() {
-        return "Employee{" + "name=" + name + ", employeeID=" + employeeID + ", age=" + age + ", gender=" + gender + ", startDate=" + startDate + ", level=" + level + ", teamInfo=" + teamInfo + ", position=" + position + ", phone=" + phone + ", emailID=" + emailID + ", photo=" + photo + '}';
+        return "Employee{" + "name=" + name + ", employeeID=" + employeeID + ", age=" + age + ", gender=" + gender + ", startDate=" + startDate + ", level=" + level + ", teamInfo=" + teamInfo + ", position=" + position + ", phone=" + phone + ", emailID=" + emailID  +'}';
     }
 
     

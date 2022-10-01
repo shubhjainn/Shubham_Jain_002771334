@@ -12,8 +12,17 @@ import java.util.ArrayList;
  */
 public class EmployeeFunctionality {
     private ArrayList<Employee> employee_list;
+    private String imgPath;
     public EmployeeFunctionality(){
         this.employee_list= new ArrayList<Employee>();
+    }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
     }
 
     public ArrayList<Employee> getEmployee_list() {
@@ -29,6 +38,8 @@ public class EmployeeFunctionality {
        employee_list.add(newEmployee);
        return newEmployee;
    }
+
+    
    
    
    
