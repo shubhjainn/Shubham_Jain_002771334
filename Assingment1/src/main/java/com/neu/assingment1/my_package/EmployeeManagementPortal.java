@@ -227,14 +227,14 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
             }
         });
 
-        txtEmployeeGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select gender", "Male", "Female" }));
+        txtEmployeeGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
         txtEmployeeGender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmployeeGenderActionPerformed(evt);
             }
         });
 
-        txtEmployeeLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Level", "Level 1", "Level 2", "Level 3", " " }));
+        txtEmployeeLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1", "Level 2", "Level 3", " " }));
         txtEmployeeLevel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmployeeLevelActionPerformed(evt);
@@ -603,7 +603,7 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
         jLabel46.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel46.setText("Gender");
 
-        editEmployeeGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select gender", "Male", "Female" }));
+        editEmployeeGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
         editEmployeeGender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editEmployeeGenderActionPerformed(evt);
@@ -631,7 +631,7 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
         jLabel49.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel49.setText("Level");
 
-        editEmployeeLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Level", "Level 1", "Level 2", "Level 3" }));
+        editEmployeeLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1", "Level 2", "Level 3" }));
         editEmployeeLevel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editEmployeeLevelActionPerformed(evt);
@@ -717,7 +717,7 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
                             .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(180, 180, 180)
                             .addComponent(editCancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(284, Short.MAX_VALUE)))
+                    .addContainerGap(309, Short.MAX_VALUE)))
         );
         editPageLayout.setVerticalGroup(
             editPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1060,11 +1060,11 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
         String emp_gender = model.getValueAt(selected, 3).toString();
         switch(emp_gender){
             case "Male" -> {
-                editEmployeeGender.setSelectedIndex(1);
+                editEmployeeGender.setSelectedIndex(0);
                 break;
             }
             case "Female" ->{
-                editEmployeeGender.setSelectedIndex(2);
+                editEmployeeGender.setSelectedIndex(1);
                 break;
 
             }
@@ -1075,17 +1075,17 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
         String emp_level = model.getValueAt(selected, 6).toString();
         switch(emp_level){
             case "Level 1" -> {
-                editEmployeeLevel.setSelectedIndex(1);
+                editEmployeeLevel.setSelectedIndex(0);
                 break;
             }
             case "Level 2" ->{
-                editEmployeeLevel.setSelectedIndex(2);
+                editEmployeeLevel.setSelectedIndex(1);
                 break;
 
             }
 
             case "Level 3" ->{
-                editEmployeeLevel.setSelectedIndex(3);
+                editEmployeeLevel.setSelectedIndex(2);
                 break;
 
             }
@@ -1110,11 +1110,11 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
         String view_emp_gender = model.getValueAt(selected, 3).toString();
         switch(view_emp_gender){
             case "Male" -> {
-                viewEmployeeGender.setSelectedIndex(1);
+                viewEmployeeGender.setSelectedIndex(0);
                 break;
             }
             case "Female" ->{
-                viewEmployeeGender.setSelectedIndex(2);
+                viewEmployeeGender.setSelectedIndex(1);
                 break;
 
             }
@@ -1125,17 +1125,17 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
         String view_emp_level = model.getValueAt(selected, 6).toString();
         switch(view_emp_level){
             case "Level 1" -> {
-                viewEmployeeLevel.setSelectedIndex(1);
+                viewEmployeeLevel.setSelectedIndex(0);
                 break;
             }
             case "Level 2" ->{
-                viewEmployeeLevel.setSelectedIndex(2);
+                viewEmployeeLevel.setSelectedIndex(1);
                 break;
 
             }
 
             case "Level 3" ->{
-                viewEmployeeLevel.setSelectedIndex(3);
+                viewEmployeeLevel.setSelectedIndex(2);
                 break;
 
             }
@@ -1215,20 +1215,18 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
     
     
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        try{
         String name = txtEmployeeName.getText();
         String employeeID = txtEmployeeID.getText();
         String age= txtEmployeeAge.getText();
+        int empAge=0;
+        empAge= Integer.parseInt(age);
         String gender=txtEmployeeGender.getSelectedItem().toString();
         String startDate = txtEmployeeStartDate.getText();
 
         SimpleDateFormat date_formatter = new SimpleDateFormat("MM/dd/yyyy");
         Date date = new Date();
-        try {
-            date=date_formatter.parse(startDate);
-        }catch (ParseException e) {
-            
-            JOptionPane.showMessageDialog(null,e);
-        }
+        date=date_formatter.parse(startDate);
         String level= txtEmployeeLevel.getSelectedItem().toString();
         String teamInfo = txtEmployeeTeam.getText();
         String position = txtEmployeePosition.getText();
@@ -1242,7 +1240,7 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
             Employee emp= add_emp.addNewEmployee();
         emp.setName(name);
         emp.setEmployeeID(employeeID);
-        emp.setAge(age);
+        emp.setAge(empAge);
         emp.setGender(gender);
         emp.setStartDate(date);
         emp.setLevel(level);
@@ -1269,7 +1267,11 @@ public class EmployeeManagementPortal extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(addBtn,"Please check the fields!!");  
 
         }
-        
+        }
+        catch (Exception e) 
+        {
+           JOptionPane.showMessageDialog(addBtn,"Please check the fields!!");  
+        }
         
         
 
