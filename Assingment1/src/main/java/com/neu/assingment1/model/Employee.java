@@ -21,6 +21,15 @@ public class Employee {
    private String position;
    private String phone;
    private String emailID;
+   private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public String getName() {
         return name;
