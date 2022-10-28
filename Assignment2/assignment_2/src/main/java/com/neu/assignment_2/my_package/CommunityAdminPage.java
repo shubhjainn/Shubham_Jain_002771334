@@ -3,6 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.neu.assignment_2.my_package;
+import com.neu.assignment_2.model.City;
+import com.neu.assignment_2.model.Community;
+import com.neu.assignment_2.model.House;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -33,41 +39,43 @@ public class CommunityAdminPage extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        cityNoTextField = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        cityNameTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton3 = new javax.swing.JButton();
+        comboBoxStateList = new javax.swing.JComboBox<>();
+        cityAddButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        communityNoTextField = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        communityNameTextField = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        pinCode = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        comboBoxCityList = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jTextField10 = new javax.swing.JTextField();
+        communityAddButton = new javax.swing.JButton();
+        communityStateTextField = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField9 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        houseNoTextField = new javax.swing.JTextField();
+        houseNameTextField = new javax.swing.JTextField();
+        ownerNameTextField = new javax.swing.JTextField();
+        comboBoxCommunityList = new javax.swing.JComboBox<>();
+        houseCityTextField = new javax.swing.JTextField();
+        houseAddButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTabbedPane3.setTabPlacement(javax.swing.JTabbedPane.LEFT);
 
         jLabel1.setText("Community Admin Workspace");
 
@@ -77,9 +85,14 @@ public class CommunityAdminPage extends javax.swing.JFrame {
 
         jLabel2.setText("State");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxStateList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "IllinoisIndiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "MontanaNebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "PennsylvaniaRhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming" }));
 
-        jButton3.setText("Add");
+        cityAddButton.setText("Add");
+        cityAddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cityAddButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -90,7 +103,7 @@ public class CommunityAdminPage extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(188, 188, 188)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cityAddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16)
@@ -98,14 +111,14 @@ public class CommunityAdminPage extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cityNoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(21, 21, 21)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(comboBoxStateList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cityNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(jLabel2))
-                .addContainerGap(281, Short.MAX_VALUE))
+                .addContainerGap(256, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,19 +127,19 @@ public class CommunityAdminPage extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cityNoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel15))
                         .addGap(22, 22, 22)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cityNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel4))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                    .addComponent(comboBoxStateList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
+                .addComponent(cityAddButton)
                 .addGap(105, 105, 105))
         );
 
@@ -140,11 +153,25 @@ public class CommunityAdminPage extends javax.swing.JFrame {
 
         jLabel13.setText("City :");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxCityList.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboBoxCityListItemStateChanged(evt);
+            }
+        });
+        comboBoxCityList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxCityListActionPerformed(evt);
+            }
+        });
 
         jLabel14.setText("State :");
 
-        jButton2.setText("Add");
+        communityAddButton.setText("Add");
+        communityAddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                communityAddButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -161,20 +188,20 @@ public class CommunityAdminPage extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addGap(18, 18, 18)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(communityNoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                     .addGap(21, 21, 21)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(communityNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(21, 21, 21)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                                    .addComponent(jTextField10)))))
+                                    .addComponent(comboBoxCityList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pinCode, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                    .addComponent(communityStateTextField)))))
                     .addComponent(jLabel14)
                     .addComponent(jLabel13)
                     .addComponent(jLabel12)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(communityAddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(284, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -182,26 +209,26 @@ public class CommunityAdminPage extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(communityNoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(communityNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pinCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBoxCityList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                    .addComponent(communityStateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                .addComponent(communityAddButton)
                 .addGap(97, 97, 97))
         );
 
@@ -217,9 +244,18 @@ public class CommunityAdminPage extends javax.swing.JFrame {
 
         jLabel9.setText("House Name :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxCommunityList.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboBoxCommunityListItemStateChanged(evt);
+            }
+        });
 
-        jButton1.setText("Add");
+        houseAddButton.setText("Add");
+        houseAddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                houseAddButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -229,7 +265,7 @@ public class CommunityAdminPage extends javax.swing.JFrame {
                 .addGap(169, 169, 169)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(houseAddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 306, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,10 +276,10 @@ public class CommunityAdminPage extends javax.swing.JFrame {
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel6Layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(houseNoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                                         .addGap(21, 21, 21)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(houseNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,11 +290,11 @@ public class CommunityAdminPage extends javax.swing.JFrame {
                                     .addComponent(jLabel7))
                                 .addGap(22, 22, 22)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField3)
+                                    .addComponent(ownerNameTextField)
                                     .addGroup(jPanel6Layout.createSequentialGroup()
                                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(comboBoxCommunityList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(houseCityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(0, 60, Short.MAX_VALUE)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -267,26 +303,26 @@ public class CommunityAdminPage extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(houseNoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(houseNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ownerNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxCommunityList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                    .addComponent(houseCityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                .addComponent(houseAddButton)
                 .addGap(97, 97, 97))
         );
 
@@ -349,7 +385,7 @@ public class CommunityAdminPage extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 556, Short.MAX_VALUE)
+            .addGap(0, 587, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -372,6 +408,240 @@ public class CommunityAdminPage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+     public static boolean clientSideValidation1(javax.swing.JFrame frame, String cityNo, String cityName, String state){
+      if(Pattern.compile("^[1-9]\\d*$").matcher(cityNo).matches()){
+        System.out.println("City No is valid.");
+         if(Pattern.compile("^[a-zA-Z\\s]*$").matcher(cityName).matches() && !cityName.equals("")){
+           System.out.println("City Name is valid.");
+           return true;
+         }
+         else
+         {
+            JOptionPane.showMessageDialog(frame, "City Name is not valid.\nOnly characters and spaces are allowed.", "Alert", JOptionPane.WARNING_MESSAGE);
+         }
+      }
+      else
+      {
+        JOptionPane.showMessageDialog(frame, "City No is not valid.\nOnly Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
+      }
+      return false;
+    }
+     
+    private void cityAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityAddButtonActionPerformed
+        // TODO add your handling code here:
+        String cityNo = cityNoTextField.getText();
+        String cityName = cityNameTextField.getText();
+        String state = comboBoxStateList.getSelectedItem().toString();
+        boolean passed = clientSideValidation1(this, cityNo, cityName, state);
+        boolean exists = false;
+        if(passed)
+        {    
+          for(City c: City.getCityList()){
+            if(Integer.parseInt(cityNo) == c.getCityNo())
+            {
+              JOptionPane.showMessageDialog(this, "City with the given Id already exists\nPlease give another Id to the city..", "Alert", JOptionPane.WARNING_MESSAGE);
+              exists = true;
+              break;
+            }
+            else if(cityName.equals(c.getCityName()))
+            {
+              JOptionPane.showMessageDialog(this, "City with the given name already exists\nPlease give another name to the city..", "Alert", JOptionPane.WARNING_MESSAGE);
+              exists = true;
+              break;
+            }
+          }
+          if(!exists){
+            City c1 = new City(Integer.parseInt(cityNo), cityName, state);
+            c1.addToCityList();
+
+            JOptionPane.showMessageDialog(this, "New City created successfully..", null, JOptionPane.OK_OPTION);
+            comboBoxCityList.removeAllItems();
+            for(City c: City.getCityList()){              
+              comboBoxCityList.addItem(c.getCityName());
+              System.out.println("Id: " + c.getCityNo() + "\nName: " + c.getCityName() + "\nState: " + c.getCityState());
+            }
+          }          
+        }
+
+    }//GEN-LAST:event_cityAddButtonActionPerformed
+
+   
+     public static boolean clientSideValidation2(javax.swing.JFrame frame, String communityNo, String communityName, String pincode){
+      if(Pattern.compile("^[1-9]\\d*$").matcher(communityNo).matches()){
+        System.out.println("Community No is valid.");
+         if(Pattern.compile("^[a-zA-Z\\s]*$").matcher(communityName).matches() && !communityName.equals("")){
+           System.out.println("Community Name is valid.");
+           return true;
+         }
+         else
+         {
+            JOptionPane.showMessageDialog(frame, "Community Name is not valid.\nOnly characters and spaces are allowed.", "Alert", JOptionPane.WARNING_MESSAGE);
+         }
+      }
+      else
+      {
+        JOptionPane.showMessageDialog(frame, "Community No is not valid.\nOnly Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
+      }
+      return false;
+    }
+    
+    private void communityAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_communityAddButtonActionPerformed
+        // TODO add your handling code here:
+         String communityNo = communityNoTextField.getText();
+         String communityName = communityNameTextField.getText();
+         String pincode = pinCode.getText();
+         boolean passed = clientSideValidation2(this, communityNo, communityName, pincode);
+         boolean exists = false;
+         if(passed)
+        {    
+          for(Community c: Community.getCommunityList()){
+            if(Integer.parseInt(communityNo) == c.getCommunityNo())
+            {
+              JOptionPane.showMessageDialog(this, "Community with the given Id already exists\nPlease give another Id to the city..", "Alert", JOptionPane.WARNING_MESSAGE);
+              exists = true;
+              break;
+            }
+            else if(communityName.equals(c.getCommunityName()))
+            {
+              JOptionPane.showMessageDialog(this, "Community with the given name already exists\nPlease give another name to the city..", "Alert", JOptionPane.WARNING_MESSAGE);
+              exists = true;
+              break;
+            }
+          }
+           if(!exists){
+            City city = null;
+            for(City c: City.getCityList())
+            {               
+              if(c.getCityName().equals(comboBoxCityList.getSelectedItem().toString()))
+              {
+                city = c;
+                break;
+              }
+            }
+            Community c1 = new Community(Integer.parseInt(communityNo), communityName, Integer.parseInt(pincode), city);
+            c1.addToCommunityList();
+            JOptionPane.showMessageDialog(this, "New Community created successfully..", null, JOptionPane.OK_OPTION);
+            comboBoxCommunityList.removeAllItems();
+
+//            updateHouseCommCombo.removeAllItems();
+            for(Community c: Community.getCommunityList()){              
+              comboBoxCommunityList.addItem(c.getCommunityName());
+              
+//              updateHouseCommCombo.addItem(c.getName());
+              System.out.println("Id: " + c.getCommunityNo() + "\nName: " + c.getCommunityName() + "\nCity: " + c1.getCity().getCityName() + "\nState:" + c1.getCity().getCityState());
+            }
+          }          
+        }
+    }//GEN-LAST:event_communityAddButtonActionPerformed
+
+     public static boolean clientSideValidation3(javax.swing.JFrame frame, String houseNo, String houseName, String ownerName){
+      if(Pattern.compile("^[1-9]\\d*$").matcher(houseNo).matches()){
+        System.out.println("House No is valid.");
+         if(Pattern.compile("^[a-zA-Z\\s]*$").matcher(houseName).matches() && houseName.equals("")){
+           System.out.println("House Name is valid.");
+            if(Pattern.compile("^[a-zA-Z\\s]*$").matcher(ownerName).matches() && ownerName.equals("")){
+                System.out.println("Owner Name is valid.");
+                return true;
+         }         
+            }
+         else
+         {
+            JOptionPane.showMessageDialog(frame, "House Name is not valid.\nOnly characters and spaces are allowed.", "Alert", JOptionPane.WARNING_MESSAGE);
+         }
+      }
+      else
+      {
+        JOptionPane.showMessageDialog(frame, "House No is not valid.\nOnly Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
+      }
+      return false;
+    }
+    
+    private void houseAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_houseAddButtonActionPerformed
+        // TODO add your handling code here:
+         String houseNo = houseNoTextField.getText();
+         String houseName = houseNameTextField.getText();
+         String ownerName = ownerNameTextField.getText();
+         boolean passed = clientSideValidation3(this, houseNo, houseName, ownerName);
+         boolean exists = false;
+         if(passed)
+        {    
+          for(House h: House.getHouseList()){
+            if(Integer.parseInt(houseNo) == h.getHouseNo())
+            {
+              JOptionPane.showMessageDialog(this, "House with the given Id already exists\nPlease give another Id to the city..", "Alert", JOptionPane.WARNING_MESSAGE);
+              exists = true;
+              break;
+            }
+            else if(houseName.equals(h.getHouseName()))
+            {
+              JOptionPane.showMessageDialog(this, "House with the given name already exists\nPlease give another name to the city..", "Alert", JOptionPane.WARNING_MESSAGE);
+              exists = true;
+              break;
+            }
+          }
+           if(!exists){
+            City city = null;
+            for(City c: City.getCityList())
+            {               
+              if(c.getCityName().equals(houseCityTextField.getText()))
+              {
+                city = c;
+                break;
+              }
+            }
+            
+             Community community = null;
+            for(Community c: Community.getCommunityList())
+            {               
+              if(c.getCommunityName().equals(houseCityTextField.getText()))
+              {
+                community = c;
+                break;
+              }
+            }
+            House h1 = new House(Integer.parseInt(houseNo), houseName, ownerName, community,city);
+            h1.addToHouseList();
+            JOptionPane.showMessageDialog(this, "New House created successfully..", null, JOptionPane.OK_OPTION);
+//            comboBoxCommunityList.removeAllItems();
+////            updateHouseCommCombo.removeAllItems();
+//            for(Community c: Community.getCommunityList()){              
+//              comboBoxCommunityList.addItem(c.getCommunityName());
+////              updateHouseCommCombo.addItem(c.getName());
+//              System.out.println("Id: " + c.getCommunityNo() + "\nName: " + c.getCommunityName() + "\nCity: " + c1.getCity().getCityName() + "\nState:" + c1.getCity().getCityState());
+//            }
+          }          
+        }
+        
+    }//GEN-LAST:event_houseAddButtonActionPerformed
+
+    private void comboBoxCityListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxCityListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxCityListActionPerformed
+
+    private void comboBoxCityListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBoxCityListItemStateChanged
+        // TODO add your handling code here:
+         if(evt!=null && evt.getSource().toString()!=null && evt.getStateChange()==java.awt.event.ItemEvent.SELECTED){
+            String selectedItem = comboBoxCityList.getSelectedItem().toString();
+            for(City c: City.getCityList()){
+                if(c.getCityName().equals(selectedItem)){
+                    communityStateTextField.setText(c.getCityState());
+                }
+            }
+        }
+    }//GEN-LAST:event_comboBoxCityListItemStateChanged
+
+    private void comboBoxCommunityListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBoxCommunityListItemStateChanged
+        // TODO add your handling code here:
+         if(evt!=null && evt.getSource().toString()!=null && evt.getStateChange()==java.awt.event.ItemEvent.SELECTED){
+            String selectedItem = comboBoxCommunityList.getSelectedItem().toString();
+            for(Community c: Community.getCommunityList()){
+                if(c.getCommunityName().equals(selectedItem)){
+                    houseCityTextField.setText(c.getCity().getCityName());
+                }
+            }
+        }
+    }//GEN-LAST:event_comboBoxCommunityListItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -409,12 +679,20 @@ public class CommunityAdminPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JButton cityAddButton;
+    private javax.swing.JTextField cityNameTextField;
+    private javax.swing.JTextField cityNoTextField;
+    private javax.swing.JComboBox<String> comboBoxCityList;
+    private javax.swing.JComboBox<String> comboBoxCommunityList;
+    private javax.swing.JComboBox<String> comboBoxStateList;
+    private javax.swing.JButton communityAddButton;
+    private javax.swing.JTextField communityNameTextField;
+    private javax.swing.JTextField communityNoTextField;
+    private javax.swing.JTextField communityStateTextField;
+    private javax.swing.JButton houseAddButton;
+    private javax.swing.JTextField houseCityTextField;
+    private javax.swing.JTextField houseNameTextField;
+    private javax.swing.JTextField houseNoTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -439,15 +717,7 @@ public class CommunityAdminPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JTabbedPane jTabbedPane10;
     private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField ownerNameTextField;
+    private javax.swing.JTextField pinCode;
     // End of variables declaration//GEN-END:variables
 }

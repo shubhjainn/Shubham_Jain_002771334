@@ -13,11 +13,11 @@ import java.util.ArrayList;
 public class Community {
     private int communityNo;
     private String communityName;
-    private String pinCode;
+    private int pinCode;
     private City city;
     private static ArrayList<Community> communityList = new ArrayList<>();
 
-    public Community(int communityNo, String communityName, String pinCode, City city) {
+    public Community(int communityNo, String communityName, int pinCode, City city) {
         this.communityNo = communityNo;
         this.communityName = communityName;
         this.pinCode = pinCode;
@@ -25,7 +25,6 @@ public class Community {
     }
     public void addToCommunityList(){
         communityList.add(this);
-              
     }
 
     public int getCommunityNo() {
@@ -36,7 +35,7 @@ public class Community {
         return communityName;
     }
 
-    public String getPinCode() {
+    public int getPinCode() {
         return pinCode;
     }
 
@@ -47,6 +46,5 @@ public class Community {
     public static ArrayList<Community> getCommunityList() {
         return communityList;
     }
-    
-    
+     
 }
