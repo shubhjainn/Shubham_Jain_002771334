@@ -636,7 +636,7 @@ public class CommunityAdminPage extends javax.swing.JFrame {
          if(evt!=null && evt.getSource().toString()!=null && evt.getStateChange()==java.awt.event.ItemEvent.SELECTED){
             String selectedItem = comboBoxCommunityList.getSelectedItem().toString();
             for(Community c: Community.getCommunityList()){
-                if(c.getCommunityName().equals(selectedItem)){
+                    if(c.getCommunityName().equals(selectedItem)){
                     houseCityTextField.setText(c.getCity().getCityName());
                 }
             }
