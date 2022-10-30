@@ -14,7 +14,7 @@ import secondAssignment.system.ui.Login;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class Doctor extends javax.swing.JFrame {
 

@@ -6,7 +6,7 @@ package secondAssignment.system.person;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class House {
        private Person person;

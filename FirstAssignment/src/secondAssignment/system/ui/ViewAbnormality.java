@@ -14,7 +14,7 @@ import secondAssignment.system.person.PatientDirectory;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class ViewAbnormality extends javax.swing.JFrame {
 

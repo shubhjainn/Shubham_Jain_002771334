@@ -13,7 +13,7 @@ import secondAssignment.system.ui.ViewAbnormality;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class CommintyAdmin extends javax.swing.JFrame {
 

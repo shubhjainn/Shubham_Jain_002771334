@@ -15,7 +15,7 @@ import secondAssignment.system.ui.Login;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class HospitalAdmin extends javax.swing.JFrame {
 

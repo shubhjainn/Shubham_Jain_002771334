@@ -14,7 +14,7 @@ import secondAssignment.system.ui.UpdatePatient;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class Patient extends javax.swing.JFrame {
 

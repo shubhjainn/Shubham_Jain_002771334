@@ -6,6 +6,7 @@ package secondAssignment.system.ui;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import secondAssignment.system.person.City;
 import secondAssignment.system.person.Encounter;
@@ -15,7 +16,7 @@ import secondAssignment.system.person.VitalSigns;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class AddDiagnosisInformation extends javax.swing.JFrame {
 
@@ -218,19 +219,64 @@ public class AddDiagnosisInformation extends javax.swing.JFrame {
 //            cmbTypeWard.setVisible(false);
 //        }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
+    public static boolean addDiagnosisInfoclientSideValidation(javax.swing.JFrame frame, String id, String pulse, String bt, String respiration, String weight, String bp) {
+        if (Pattern.compile("^[1-9]\\d*$").matcher(id).matches() && !id.equals("")) {
+            System.out.println("Patient ID field is valid.");
+            if (Pattern.compile("^[1-9]\\d*$").matcher(respiration).matches() && !respiration.equals("")) {
+                System.out.println("Respiration field is valid.");
+                if (Pattern.compile("^[1-9]\\d*$").matcher(bp).matches() && !bp.equals("")) {
+                    System.out.println("Blood pressure field is valid.");
+                    if (Pattern.compile("^[1-9]\\d*$").matcher(pulse).matches() && !pulse.equals("")) {
+                        System.out.println("Heart Rate field is valid.");
+                        if (Pattern.compile("^[1-9]\\d*$").matcher(weight).matches() && !weight.equals("")) {
+                            System.out.println("Weight field is valid.");
+
+                            if (Pattern.compile("^[1-9]\\d*$").matcher(bt).matches() && !bt.equals("")) {
+                                System.out.println("Temperature field is valid.");
+                                return true;
+
+                            } else {
+                                JOptionPane.showMessageDialog(frame, "Temperature field is not valid.\\nOnly Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(frame, "Weight field is not valid.\\nOnly Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
+                        }
+
+                    } else {
+                        JOptionPane.showMessageDialog(frame, "Heart rate field is not valid.\\nOnly Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(frame, "Blood pressure field is not valid.\\nOnly Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(frame, "Respiration field is not valid.\\nOnly Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(frame, " Patient ID field is not valid.\\nOnly Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
+        }
+        return false;
+    }
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
 
 //        if (flag == 1) {
-            Integer id = Integer.parseInt(txtPatientID.getText());
+        String id = txtPatientID.getText();
+        String bp = txtBloodPressure.getText();
+        String pulse = txtHeartRate.getText();
+        String bt = txtTemperature.getText();
+        String respiration = txtResperatory.getText();
+        String weight = txtWeight.getText();
+        String timestamp = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss").format(Calendar.getInstance().getTime());
+        boolean passed = addDiagnosisInfoclientSideValidation(this, id, pulse, bt, respiration, weight, bp);
 
-            Integer bp = Integer.parseInt(txtBloodPressure.getText());
-            Integer pulse = Integer.parseInt(txtHeartRate.getText());
-            Integer bt = Integer.parseInt(txtTemperature.getText());
-            Integer respiration = Integer.parseInt(txtResperatory.getText());
-            Integer weight = Integer.parseInt(txtWeight.getText());
-            String timestamp = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss").format(Calendar.getInstance().getTime());
+        Integer id1 = Integer.parseInt(txtPatientID.getText());
+        Integer bp1 = Integer.parseInt(txtBloodPressure.getText());
+        Integer pulse1 = Integer.parseInt(txtHeartRate.getText());
+        Integer bt1 = Integer.parseInt(txtTemperature.getText());
+        Integer respiration1 = Integer.parseInt(txtResperatory.getText());
+        Integer weight1 = Integer.parseInt(txtWeight.getText());
+
 //            String wardReq;
 //            String typeWard;
 //            if (jCheckBox1.isSelected()) {
@@ -240,21 +286,23 @@ public class AddDiagnosisInformation extends javax.swing.JFrame {
 //                wardReq = "No";
 //                typeWard = "";
 //            }
-           // try {
-                for (int i = 0; i < history.getPatientList().size(); i++) {
-                    int patientid = (history.getPatientList().get(i).getPatientID());
-                    if (id == patientid) {
-                        EncounterHistory eh = history.getPatientList().get(i).getEncounterHistory();
-                        VitalSigns signs = new VitalSigns(pulse, bp, weight, respiration, bt);
-                        Encounter encounter = new Encounter(signs, timestamp);
-                        eh.addNewEncounter(encounter);
+        // try {
+        if (passed) {
 
-                        JOptionPane.showMessageDialog(this, "New vitals added for the patient.");
-                        //update the info to that patient
-                        JOptionPane.showMessageDialog(null, "succesfully updated");
-                        setVisible(false);
-                        new AddDiagnosisInformation(history, city).setVisible(true);
-                   // }
+            for (int i = 0; i < history.getPatientList().size(); i++) {
+                int patientid = (history.getPatientList().get(i).getPatientID());
+                if (id1 == patientid) {
+                    EncounterHistory eh = history.getPatientList().get(i).getEncounterHistory();
+                    VitalSigns signs = new VitalSigns(pulse1, bp1, weight1, respiration1, bt1);
+                    Encounter encounter = new Encounter(signs, timestamp);
+                    eh.addNewEncounter(encounter);
+
+                    JOptionPane.showMessageDialog(this, "New vitals added for the patient.");
+                    //update the info to that patient
+                    JOptionPane.showMessageDialog(null, "succesfully updated");
+                    setVisible(false);
+                    new AddDiagnosisInformation(history, city).setVisible(true);
+                    // }
 //                }
 //                    }catch(Exception e){
 //                JOptionPane.showMessageDialog(this, e);
@@ -262,12 +310,13 @@ public class AddDiagnosisInformation extends javax.swing.JFrame {
                 }
 //else{
 //            JOptionPane.showMessageDialog(null, "Patient Id field is empty");
+            }
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
-             * @param args the command line arguments
-             */
+     * @param args the command line arguments
+     */
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

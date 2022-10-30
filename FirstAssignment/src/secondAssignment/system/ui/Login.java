@@ -18,7 +18,7 @@ import secondAssignment.system.ui.patient.Patient;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class Login extends javax.swing.JFrame {
 
@@ -150,14 +150,14 @@ public static boolean loginPageclientSideValidation(javax.swing.JFrame frame, St
          }
          else
          {
-            JOptionPane.showMessageDialog(frame, "Password field is empty", "Alert", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(frame, "Password field is not in specified format", "Alert", JOptionPane.WARNING_MESSAGE);
          }
       }
       else
       {
-        JOptionPane.showMessageDialog(frame, "User Name is not valid.\nOnly characters and spaces are allowed.", "Alert", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(frame, "User Name is not valid. Only characters and spaces are allowed.", "Alert", JOptionPane.WARNING_MESSAGE);
       }
-      return true;
+      return false;
     }
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
@@ -203,6 +203,10 @@ public static boolean loginPageclientSideValidation(javax.swing.JFrame frame, St
                 new Home(lgnList).setVisible(true);
 
             }
+//            else{
+//                JOptionPane.showMessageDialog(null, "User doesn't exist. Please create a new user", "Alert", JOptionPane.WARNING_MESSAGE);
+//
+//            }
         }
           }
 

@@ -8,11 +8,11 @@ import java.util.ArrayList;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class HospitalTest {
     public static void main(String[] args) {
-//        Patient p = new Patient("sweta","20","contact_patiient","PA12345678",
+//        Patient p = new Patient("shubhamjain","20","contact_patiient","PA12345678",
 //        new ArrayList<MedicalReport>()
 //        );
 //House house = "abc";

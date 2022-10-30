@@ -11,7 +11,7 @@ import secondAssignment.system.person.PatientDirectory;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class Home extends javax.swing.JFrame {
 
@@ -39,7 +39,6 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         btnAddPatient = new javax.swing.JButton();
         btnAddDiagnosisInfo = new javax.swing.JButton();
         btnAddHistory = new javax.swing.JButton();
@@ -50,13 +49,6 @@ public class Home extends javax.swing.JFrame {
         btnAbnormality = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jButton1.setText("icon");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         btnAddPatient.setText("Add New Patient Record");
         btnAddPatient.setPreferredSize(new java.awt.Dimension(240, 59));
@@ -126,10 +118,6 @@ public class Home extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnAddLogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnLogOut, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -144,9 +132,7 @@ public class Home extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jButton1)
-                .addGap(38, 38, 38)
+                .addGap(93, 93, 93)
                 .addComponent(btnAddLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAddPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,33 +164,6 @@ public class Home extends javax.swing.JFrame {
            new Login( lgnList,patientList,city).setVisible(true);
         }
     }//GEN-LAST:event_btnLogOutActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        if (i == 0) {
-           // jButton1.setLocation(90,30);
-            btnAddDiagnosisInfo.setLocation(90, 30);
-            btnAddHistory.setLocation(333, 30);
-            btnAddPatient.setLocation(576, 30);
-            btnHospitalInfo.setLocation(819, 30);
-            btnLogOut.setLocation(1062, 30);
-            btnUpdate.setLocation(1062, 89);
-            btnAbnormality.setLocation(1062,150);
-            i = 1;
-        } else {
-            btnAddPatient.setLocation(5, 180);//updated 2
-            btnAddDiagnosisInfo.setLocation(10, 250);//updated 3
-            btnAddHistory.setLocation(10, 300);//updated 4
-            
-            btnHospitalInfo.setLocation(10, 350);//updated 5
-             btnUpdate.setLocation(10, 400);//updated 6
-             btnAbnormality.setLocation(10,450);//updated7
-            btnLogOut.setLocation(10, 500);//end
-           
-            
-            i = 0;
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPatientActionPerformed
         // TODO add your handling code here:
@@ -286,6 +245,5 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton btnHospitalInfo;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

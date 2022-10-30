@@ -5,6 +5,7 @@
 package secondAssignment.system.ui;
 
 import java.util.List;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -15,7 +16,7 @@ import secondAssignment.system.person.PatientDirectory;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class HistoryPatient extends javax.swing.JFrame {
 
@@ -152,13 +153,14 @@ public class HistoryPatient extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel)tblHistory.getModel();
 
         model.setRowCount(0);
+        
+        String patientID= txtPatientID.getText();
 
-        Integer id = Integer.parseInt(txtPatientID.getText());
+        if (Pattern.compile("^[1-9]\\d*$").matcher(patientID).matches() && !patientID.equals("")){
 
-        if (id == null){
+        
+          Integer id = Integer.parseInt(patientID);
 
-            JOptionPane.showMessageDialog(this,"Enter all values for the search!","ERROR",JOptionPane.ERROR_MESSAGE);
-        }
         List<Patient> filteredPatients = pDirectory.getPatientList().stream()
         .filter(p -> p.getPatientID().equals(id)
         )
@@ -186,7 +188,14 @@ public class HistoryPatient extends javax.swing.JFrame {
                 //             JOptionPane.showMessageDialog(this,"No record exists for given values!!","ERROR",JOptionPane.ERROR_MESSAGE );
                 //
                 //            }
-            //        }
+    
+                //        }
+    }
+        else{
+                        JOptionPane.showMessageDialog(this," Patient ID is not valid.\\nOnly Numbers are allowed..","ERROR",JOptionPane.ERROR_MESSAGE);
+
+           
+        }
     }//GEN-LAST:event_btnViewHisActionPerformed
 
     /**

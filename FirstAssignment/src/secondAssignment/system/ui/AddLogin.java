@@ -11,7 +11,7 @@ import secondAssignment.system.model.login.LoginList;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class AddLogin extends javax.swing.JFrame {
 
@@ -47,6 +47,7 @@ public class AddLogin extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 255, 51));
         setLocation(new java.awt.Point(280, 150));
         setUndecorated(true);
 
@@ -157,29 +158,26 @@ public class AddLogin extends javax.swing.JFrame {
                         It contains at least one special character which includes !@#$%&*()-+=^.
                     It doesn’t contain any white space.*/
                 if (
-//                        Pattern.compile("^(?=.*[0-9])"
-//                        + "(?=.[a-z])(?=.[A-Z])"
-//                        + "(?=.*[@#$%^&+=])"
-//                        + "(?=\\S+$).{8,20}$").matcher(password).matches() && 
                         !password.equals("")) {
                     System.out.println("Password is valid.");
                     if (Pattern.compile("^[a-zA-Z\\s]*$").matcher(name).matches() && !name.equals("")) {
                         System.out.println("Name is valid.");
+                        return true;
                     } else {
-                        JOptionPane.showMessageDialog(frame, "Name field is not valid", "Alert", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(frame, "Name field is not valid.\\nOnly characters and spaces are allowed.", "Alert", JOptionPane.WARNING_MESSAGE);
                     }
                 } else {
                     JOptionPane.showMessageDialog(frame, "Password field is not in specified format", "Alert", JOptionPane.WARNING_MESSAGE);
                 }
             } else {
-                JOptionPane.showMessageDialog(frame, "Username field is not valid", "Alert", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(frame, "Username field is not valid.\\nOnly characters and spaces are allowed.", "Alert", JOptionPane.WARNING_MESSAGE);
 
             }
 
         } else {
-            JOptionPane.showMessageDialog(frame, "Role is not valid", "Alert", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(frame, "Role field is not valid.\\nOnly characters and spaces are allowed.", "Alert", JOptionPane.WARNING_MESSAGE);
         }
-        return true;
+        return false;
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:

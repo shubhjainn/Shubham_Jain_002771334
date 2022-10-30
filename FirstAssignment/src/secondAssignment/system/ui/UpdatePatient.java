@@ -4,6 +4,7 @@
  */
 package secondAssignment.system.ui;
 
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import secondAssignment.system.person.City;
@@ -13,7 +14,7 @@ import secondAssignment.system.person.PatientDirectory;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class UpdatePatient extends javax.swing.JFrame {
 
@@ -207,37 +208,83 @@ public class UpdatePatient extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_btnCloesActionPerformed
 
+        public static boolean updatePatientclientSideValidation(javax.swing.JFrame frame, String name, String age, String email, String houseno) {
+        if (Pattern.compile("^[a-zA-Z\\s]*$").matcher(name).matches() && !name.equals("")) {
+            System.out.println("Name is valid.");
+            if (Pattern.compile("^[1-9]\\d*$").matcher(age).matches() && !age.equals("")) {
+                System.out.println("Age is valid.");
+               
+                if (Pattern.compile("^[a-zA-Z0-9_+&-]+(?:\\.[a-zA-Z0-9_+&-]+)*"
+                                    + "@" + "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$").matcher(email).matches() && !email.equals("")) {
+                    System.out.println("Email is valid.");
+                    if (Pattern.compile("^[1-9]\\d*$").matcher(houseno).matches() && !houseno.equals("")) {
+                        System.out.println("HouseNo is valid.");
+                        return true;
+                    } else {
+                        JOptionPane.showMessageDialog(frame, "House No field is not valid.\\nOnly numbers are allowed.", "Alert", JOptionPane.WARNING_MESSAGE);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(frame, "Email field is not in specified format", "Alert", JOptionPane.WARNING_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(frame, "Age field is not valid.\\nOnly numbers are allowed.", "Alert", JOptionPane.WARNING_MESSAGE);
+
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(frame, "Name field is not valid.\\nOnly characters and spaces are allowed.", "Alert", JOptionPane.WARNING_MESSAGE);
+        }
+        return false;
+    }
+
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
 
+        String name=txtName.getText();
+        String age = txtAge.getText();
+        String email= txtEmail.getText();
+        String houseNo=txtHouse.getText();
+        boolean passed = updatePatientclientSideValidation(this,name,age,email,houseNo);
+        
+        if(passed){
+        
         Integer iD = Integer.parseInt(txtPatientID.getText());
+        Integer age1= Integer.parseInt(age);
+
         for (int i = 0; i < pList.getPatientList().size(); i++) {
             int patientid = (pList.getPatientList().get(i).getPatientID());
             if (iD == patientid) {
-                pList.getPatientList().get(i).setName(txtName.getText());
-                pList.getPatientList().get(i).setAge(Integer.parseInt(txtAge.getText()));
-                pList.getPatientList().get(i).setEmail(txtEmail.getText());
-                pList.getPatientList().get(i).getHouse().setHouseNumber(txtHouse.getText());
+                pList.getPatientList().get(i).setName(name);
+                pList.getPatientList().get(i).setAge(age1);
+                pList.getPatientList().get(i).setEmail(email);
+                pList.getPatientList().get(i).getHouse().setHouseNumber(houseNo);
                 //TODO other details
 
             }
         }
         populateTable();
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
-        Integer iD = Integer.parseInt(txtPatientID.getText());
-        for (int i = 0; i < pList.getPatientList().size(); i++) {
-            int patientid = (pList.getPatientList().get(i).getPatientID());
-            if (iD == patientid) {
-                txtName.setText(pList.getPatientList().get(i).getName());
-                txtAge.setText(pList.getPatientList().get(i).getAge().toString());
-                //txtPatCity.setText(history.getpatientDirectory().get(i));
-                txtEmail.setText(pList.getPatientList().get(i).getEmail());
-                txtHouse.setText(pList.getPatientList().get(i).getHouse().getHouseNumber());
-                //TODO other details
+        String id = txtPatientID.getText();
+        if (Pattern.compile("^[1-9]\\d*$").matcher(id).matches() && !id.equals("")) {
+            Integer iD = Integer.parseInt(id);
+            for (int i = 0; i < pList.getPatientList().size(); i++) {
+                int patientid = (pList.getPatientList().get(i).getPatientID());
+                if (iD == patientid) {
+                    txtName.setText(pList.getPatientList().get(i).getName());
+                    txtAge.setText(pList.getPatientList().get(i).getAge().toString());
+                    //txtPatCity.setText(history.getpatientDirectory().get(i));
+                    txtEmail.setText(pList.getPatientList().get(i).getEmail());
+                    txtHouse.setText(pList.getPatientList().get(i).getHouse().getHouseNumber());
+                    //TODO other details
+                }
             }
+        }
+        else{
+            JOptionPane.showMessageDialog(this," Patient ID is not valid.\\nOnly Numbers are allowed..","ERROR",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnEditActionPerformed
 
