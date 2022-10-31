@@ -19,7 +19,7 @@ import secondAssignment.system.ui.patient.Patient;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class Login extends javax.swing.JFrame {
 
@@ -56,6 +56,7 @@ public class Login extends javax.swing.JFrame {
         btnClose = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -89,6 +90,9 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel2.setText("Login Page");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/secondAssignment/system/ui/bb.jpeg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -208,6 +212,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel password;
     private javax.swing.JPasswordField pwdPassword;
     private javax.swing.JTextField txtUserName;

@@ -17,7 +17,7 @@ import secondAssignment.system.person.VitalSigns;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class AddDiagnosisInformation extends javax.swing.JFrame {
 

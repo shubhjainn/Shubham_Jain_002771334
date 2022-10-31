@@ -6,7 +6,7 @@ package secondAssignment.system.person;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class VitalSigns {
      private double HR;

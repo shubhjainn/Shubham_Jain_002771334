@@ -12,7 +12,7 @@ import secondAssignment.system.person.House;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class CreateHospital extends javax.swing.JFrame {
 

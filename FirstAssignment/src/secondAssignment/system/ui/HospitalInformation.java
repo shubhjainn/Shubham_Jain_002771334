@@ -6,7 +6,7 @@ package secondAssignment.system.ui;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class HospitalInformation extends javax.swing.JFrame {
 

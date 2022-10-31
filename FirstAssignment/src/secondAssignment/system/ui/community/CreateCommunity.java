@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class CreateCommunity extends javax.swing.JFrame {
 
@@ -25,7 +25,7 @@ public class CreateCommunity extends javax.swing.JFrame {
     public CreateCommunity() {
         initComponents();
         try {
-            File myObj = new File("C:\\sweta\\Assignment\\INFO2\\INFO\\FirstAssignment\\src\\txt\\city.txt");
+            File myObj = new File("C:\\shubhamjain\\Assignment\\INFO2\\INFO\\FirstAssignment\\src\\txt\\city.txt");
             Scanner myReader = new Scanner(myObj);
             // while (myReader.hasNextLine()) {
             data = myReader.nextLine();
@@ -169,7 +169,7 @@ public class CreateCommunity extends javax.swing.JFrame {
         String communityName = TextCommunityName.getText();
         // resource.setPassword(String.valueOf(TextPassword.getPassword()));
 try {  
-      FileWriter myWriter = new FileWriter("C:\\sweta\\Assignment\\INFO2\\INFO\\FirstAssignment\\src\\txt\\community.txt");
+      FileWriter myWriter = new FileWriter("C:\\shubhamjain\\Assignment\\INFO2\\INFO\\FirstAssignment\\src\\txt\\community.txt");
       myWriter.write("city="+city.toString() + "\n");
       myWriter.write("communityID="+communityID.toString() + "\n");
       myWriter.write("communityName="+communityName.toString() + "\n");

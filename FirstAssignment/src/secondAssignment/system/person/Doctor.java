@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class Doctor extends Person {
     public String availablity; 

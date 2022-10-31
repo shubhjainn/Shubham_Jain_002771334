@@ -17,7 +17,7 @@ import secondAssignment.system.ui.community.model.HouseStore;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class CreateCity extends javax.swing.JFrame {
 
@@ -171,7 +171,7 @@ public class CreateCity extends javax.swing.JFrame {
     Integer cityID =   Integer.parseInt(TextCityId.getText());
        String cityName =  TextCityName.getText();
  try {  
-      FileWriter myWriter = new FileWriter("C:\\sweta\\Assignment\\INFO2\\INFO\\FirstAssignment\\src\\txt\\city.txt");
+      FileWriter myWriter = new FileWriter("C:\\shubhamjain\\Assignment\\INFO2\\INFO\\FirstAssignment\\src\\txt\\city.txt");
       myWriter.write("cityID="+cityID.toString() + "\n");
       myWriter.write("cityName="+cityName.toString());
       myWriter.close();

@@ -14,7 +14,7 @@ import secondAssignment.system.person.DoctorDirectory;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class SearchDocHospital extends javax.swing.JFrame {
 
@@ -27,7 +27,7 @@ public class SearchDocHospital extends javax.swing.JFrame {
         initComponents();
         
         try {
-            File myObj = new File("C:\\sweta\\Assignment\\INFO2\\INFO\\FirstAssignment\\src\\txt\\doctor.txt");
+            File myObj = new File("C:\\shubhamjain\\Assignment\\INFO2\\INFO\\FirstAssignment\\src\\txt\\doctor.txt");
             Scanner myReader = new Scanner(myObj);
              while (myReader.hasNextLine()) {
                 data = myReader.nextLine();
@@ -145,7 +145,7 @@ public class SearchDocHospital extends javax.swing.JFrame {
         //System.out.println("In Search Name- "+ name);
     
       try {
-            File myObj = new File("C:\\sweta\\Assignment\\INFO2\\INFO\\FirstAssignment\\src\\txt\\doctor.txt");
+            File myObj = new File("C:\\shubhamjain\\Assignment\\INFO2\\INFO\\FirstAssignment\\src\\txt\\doctor.txt");
             Scanner myReader = new Scanner(myObj);
              while (myReader.hasNextLine()) {
                 data = myReader.nextLine();

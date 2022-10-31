@@ -18,7 +18,7 @@ import secondAssignment.system.person.PatientDirectory;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class CreateDoctor extends javax.swing.JFrame {
 
@@ -228,7 +228,7 @@ public class CreateDoctor extends javax.swing.JFrame {
        
         plist.addDoctor(dr);
 try {  
-      FileWriter myWriter = new FileWriter("C:\\sweta\\Assignment\\INFO2\\INFO\\FirstAssignment\\src\\txt\\doctor.txt");
+      FileWriter myWriter = new FileWriter("C:\\shubhamjain\\Assignment\\INFO2\\INFO\\FirstAssignment\\src\\txt\\doctor.txt");
      
       myWriter.write(community + "=" + dr.getName() + "|" + availablity);
      // myWriter.write("communityName="+communityName.toString() + "\n");

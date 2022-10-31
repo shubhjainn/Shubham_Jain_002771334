@@ -12,7 +12,7 @@ import secondAssignment.system.person.PatientDirectory;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class Home extends javax.swing.JFrame {
 

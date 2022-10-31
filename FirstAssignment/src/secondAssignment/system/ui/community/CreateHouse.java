@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author sweta
+ * @author shubhamjain
  */
 public class CreateHouse extends javax.swing.JFrame {
 
@@ -24,7 +24,7 @@ public class CreateHouse extends javax.swing.JFrame {
     public CreateHouse() {
         initComponents();
          try {
-            File myObj = new File("C:\\sweta\\Assignment\\INFO2\\INFO\\FirstAssignment\\src\\txt\\community.txt");
+            File myObj = new File("C:\\shubhamjain\\Assignment\\INFO2\\INFO\\FirstAssignment\\src\\txt\\community.txt");
             Scanner myReader = new Scanner(myObj);
             // while (myReader.hasNextLine()) {
             data = myReader.nextLine();
@@ -173,7 +173,7 @@ public class CreateHouse extends javax.swing.JFrame {
           String houseId =        TextHouseId.getText();
             String person =    TextPerson.getText();
             try {  
-      FileWriter myWriter = new FileWriter("C:\\sweta\\Assignment\\INFO2\\INFO\\FirstAssignment\\src\\txt\\house.txt");
+      FileWriter myWriter = new FileWriter("C:\\shubhamjain\\Assignment\\INFO2\\INFO\\FirstAssignment\\src\\txt\\house.txt");
       myWriter.write("communityName="+communityName.toString() + "\n");
       myWriter.write("houseId="+houseId.toString() + "\n");
       myWriter.write("person="+person.toString() + "\n");
