@@ -8,11 +8,12 @@ import javax.swing.JOptionPane;
 import secondAssignment.system.model.login.Credentials;
 import secondAssignment.system.model.login.LoginList;
 import secondAssignment.system.person.City;
+import secondAssignment.system.person.DoctorDirectory;
 import secondAssignment.system.person.PatientDirectory;
 
 /**
  *
- * @author shubhamjain
+ * @author sweta
  */
 public class MainPage extends javax.swing.JFrame {
 
@@ -22,6 +23,7 @@ public class MainPage extends javax.swing.JFrame {
      LoginList lgnList;
      PatientDirectory patientList;
     City city;
+    DoctorDirectory dlist;
     public MainPage() {
         
         initComponents();
@@ -40,7 +42,6 @@ public class MainPage extends javax.swing.JFrame {
         btnClose = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,37 +66,28 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel1.setText("Hospital Management System");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addComponent(jButton1)
-                .addGap(196, 196, 196)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
-                .addComponent(btnClose)
-                .addGap(117, 117, 117))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(268, 268, 268))
+                .addGap(181, 181, 181)
+                .addComponent(jButton1)
+                .addGap(119, 119, 119)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                .addComponent(btnClose)
+                .addGap(145, 145, 145))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
+                .addContainerGap(367, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnClose)
                     .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(btnClose))
-                .addGap(261, 261, 261))
+                    .addComponent(jButton2))
+                .addGap(111, 111, 111))
         );
 
         pack();
@@ -118,7 +110,7 @@ public class MainPage extends javax.swing.JFrame {
          lgn.setRole("admin");
          lgn.setName("admin");
         
-        new Login(lgnList,patientList,city).setVisible(true);
+        new Login(lgnList,patientList,city,dlist).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -167,6 +159,5 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JButton btnClose;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

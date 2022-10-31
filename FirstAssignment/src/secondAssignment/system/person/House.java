@@ -6,10 +6,11 @@ package secondAssignment.system.person;
 
 /**
  *
- * @author shubhamjain
+ * @author sweta
  */
 public class House {
-       private Person person;
+    
+      private Person person;
     private String houseNumber;
 
     public String getHouseNumber() {
@@ -41,5 +42,7 @@ public class House {
 
      
 
+     
+    
     
 }

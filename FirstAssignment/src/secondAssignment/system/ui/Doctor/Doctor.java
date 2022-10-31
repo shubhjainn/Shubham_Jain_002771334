@@ -7,6 +7,7 @@ package secondAssignment.system.ui.Doctor;
 import javax.swing.JOptionPane;
 import secondAssignment.system.model.login.LoginList;
 import secondAssignment.system.person.City;
+import secondAssignment.system.person.DoctorDirectory;
 import secondAssignment.system.person.PatientDirectory;
 import secondAssignment.system.ui.AddDiagnosisInformation;
 import secondAssignment.system.ui.HistoryPatient;
@@ -14,7 +15,7 @@ import secondAssignment.system.ui.Login;
 
 /**
  *
- * @author shubhamjain
+ * @author sweta
  */
 public class Doctor extends javax.swing.JFrame {
 
@@ -24,11 +25,13 @@ public class Doctor extends javax.swing.JFrame {
      PatientDirectory patientList;
     City city;
     LoginList lgnList;
-    public Doctor(LoginList lgnList,PatientDirectory patientList,City city) {
+     DoctorDirectory doctorList;
+    public Doctor(LoginList lgnList,PatientDirectory patientList,City city,DoctorDirectory doctorList) {
         initComponents();
          this.lgnList = lgnList;
          this.city = city;
          this.patientList = patientList;
+         this.doctorList = doctorList;
          
     }
 
@@ -114,20 +117,20 @@ public class Doctor extends javax.swing.JFrame {
         if (a == 0) {
             setVisible(false);
              System.out.println("outside doc");
-            new Login(lgnList,patientList,city).setVisible(true);
+            new Login(lgnList,patientList,city,doctorList).setVisible(true);
         }
     }//GEN-LAST:event_btnLogOutActionPerformed
 
     private void btnAddDiagnosisInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDiagnosisInfoActionPerformed
         // TODO add your handling code here:
-        new AddDiagnosisInformation(patientList,city).setVisible(true);
+        new AddDiagnosisInformation(patientList,city,doctorList).setVisible(true);
         System.out.println(patientList.toString());
         System.out.println(city.toString());
     }//GEN-LAST:event_btnAddDiagnosisInfoActionPerformed
 
     private void btnAddHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHistoryActionPerformed
         // TODO add your handling code here:
-        new HistoryPatient(patientList,city).setVisible(true);
+        new HistoryPatient(patientList,city,doctorList).setVisible(true);
     }//GEN-LAST:event_btnAddHistoryActionPerformed
 
     /**

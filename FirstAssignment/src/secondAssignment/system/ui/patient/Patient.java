@@ -7,6 +7,7 @@ package secondAssignment.system.ui.patient;
 import javax.swing.JOptionPane;
 import secondAssignment.system.model.login.LoginList;
 import secondAssignment.system.person.City;
+import secondAssignment.system.person.DoctorDirectory;
 import secondAssignment.system.person.PatientDirectory;
 import secondAssignment.system.ui.HistoryPatient;
 import secondAssignment.system.ui.Login;
@@ -14,7 +15,7 @@ import secondAssignment.system.ui.UpdatePatient;
 
 /**
  *
- * @author shubhamjain
+ * @author sweta
  */
 public class Patient extends javax.swing.JFrame {
 
@@ -24,11 +25,14 @@ public class Patient extends javax.swing.JFrame {
     LoginList lgnList;
      PatientDirectory patientList;
     City city;
-    public Patient(LoginList lgnList,PatientDirectory patientList,City city) {
+    DoctorDirectory doctorList;
+    
+    public Patient(LoginList lgnList,PatientDirectory patientList,City city,DoctorDirectory doctorList) {
         initComponents();
         this.lgnList = lgnList;
         this.city = city;
          this.patientList = patientList;
+         this.doctorList = doctorList;
     }
 
     /**
@@ -128,18 +132,18 @@ public class Patient extends javax.swing.JFrame {
         if (a == 0) {
             setVisible(false);
 
-            new Login( lgnList,patientList,city).setVisible(true);
+            new Login( lgnList,patientList,city,doctorList).setVisible(true);
         }
     }//GEN-LAST:event_btnLogOutActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        new UpdatePatient(patientList,city).setVisible(true);
+        new UpdatePatient(patientList,city,doctorList).setVisible(true);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnAddHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHistoryActionPerformed
         // TODO add your handling code here:
-        new HistoryPatient(patientList,city).setVisible(true);
+        new HistoryPatient(patientList,city,doctorList).setVisible(true);
     }//GEN-LAST:event_btnAddHistoryActionPerformed
 
     private void btnAddHistory1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHistory1ActionPerformed

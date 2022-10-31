@@ -8,7 +8,7 @@ package secondAssignment.system.model.login;
 
 /**
  *
- * @author shubhamjain
+ * @author sweta
  */
 public class Credentials {
     String role;

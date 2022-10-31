@@ -6,7 +6,7 @@ package secondAssignment.system.person;
 
 /**
  *
- * @author shubhamjain
+ * @author sweta
  */
 public class Encounter {
     PatientDirectory patientList = new PatientDirectory();

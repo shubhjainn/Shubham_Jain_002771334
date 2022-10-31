@@ -10,13 +10,14 @@ import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import secondAssignment.system.person.City;
+import secondAssignment.system.person.DoctorDirectory;
 import secondAssignment.system.person.Encounter;
 import secondAssignment.system.person.Patient;
 import secondAssignment.system.person.PatientDirectory;
 
 /**
  *
- * @author shubhamjain
+ * @author sweta
  */
 public class HistoryPatient extends javax.swing.JFrame {
 
@@ -25,10 +26,12 @@ public class HistoryPatient extends javax.swing.JFrame {
      */
     PatientDirectory pDirectory;
     City city;
-    public HistoryPatient(PatientDirectory history,City city) {
+    DoctorDirectory plist;
+    public HistoryPatient(PatientDirectory history,City city,DoctorDirectory plist) {
         initComponents();
         this.pDirectory = history;
         this.city=city;
+        this.plist = plist;
     }
 
     /**
@@ -153,14 +156,15 @@ public class HistoryPatient extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel)tblHistory.getModel();
 
         model.setRowCount(0);
-        
         String patientID= txtPatientID.getText();
-
-        if (Pattern.compile("^[1-9]\\d*$").matcher(patientID).matches() && !patientID.equals("")){
-
+        if(Pattern.compile("^[1-9]\\d*$").matcher(patientID).matches() && !patientID.equals("")){
         
-          Integer id = Integer.parseInt(patientID);
+            Integer id = Integer.parseInt(patientID);
 
+//        if (id == null){
+//
+//            JOptionPane.showMessageDialog(this,"Enter all values for the search!","ERROR",JOptionPane.ERROR_MESSAGE);
+//        }
         List<Patient> filteredPatients = pDirectory.getPatientList().stream()
         .filter(p -> p.getPatientID().equals(id)
         )
@@ -188,16 +192,14 @@ public class HistoryPatient extends javax.swing.JFrame {
                 //             JOptionPane.showMessageDialog(this,"No record exists for given values!!","ERROR",JOptionPane.ERROR_MESSAGE );
                 //
                 //            }
-    
-                //        }
-    }
-        else{
-                        JOptionPane.showMessageDialog(this," Patient ID is not valid.\\nOnly Numbers are allowed..","ERROR",JOptionPane.ERROR_MESSAGE);
-
-           
-        }
+            //        }
     }//GEN-LAST:event_btnViewHisActionPerformed
+        else{
+            JOptionPane.showMessageDialog(this,"Patient ID is not valid","ERROR",JOptionPane.ERROR_MESSAGE );
 
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */

@@ -6,7 +6,7 @@ package secondAssignment.system.person;
 
 /**
  *
- * @author shubhamjain
+ * @author sweta
  */
 public class Person {
          private String name;

@@ -8,13 +8,14 @@ import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import secondAssignment.system.person.City;
+import secondAssignment.system.person.DoctorDirectory;
 import secondAssignment.system.person.Encounter;
 import secondAssignment.system.person.Patient;
 import secondAssignment.system.person.PatientDirectory;
 
 /**
  *
- * @author shubhamjain
+ * @author sweta
  */
 public class UpdatePatient extends javax.swing.JFrame {
 
@@ -23,11 +24,13 @@ public class UpdatePatient extends javax.swing.JFrame {
      */
     PatientDirectory pList;
     City city;
+    DoctorDirectory plist;
 
-    public UpdatePatient(PatientDirectory pList, City city) {
+    public UpdatePatient(PatientDirectory pList, City city,DoctorDirectory plist) {
         initComponents();
         this.pList = pList;
         this.city = city;
+        this.plist = plist;
     }
 
     /**
@@ -208,7 +211,7 @@ public class UpdatePatient extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_btnCloesActionPerformed
 
-        public static boolean updatePatientclientSideValidation(javax.swing.JFrame frame, String name, String age, String email, String houseno) {
+            public static boolean updatePatientclientSideValidation(javax.swing.JFrame frame, String name, String age, String email, String houseno) {
         if (Pattern.compile("^[a-zA-Z\\s]*$").matcher(name).matches() && !name.equals("")) {
             System.out.println("Name is valid.");
             if (Pattern.compile("^[1-9]\\d*$").matcher(age).matches() && !age.equals("")) {
@@ -250,42 +253,42 @@ public class UpdatePatient extends javax.swing.JFrame {
         
         Integer iD = Integer.parseInt(txtPatientID.getText());
         Integer age1= Integer.parseInt(age);
-
         for (int i = 0; i < pList.getPatientList().size(); i++) {
             int patientid = (pList.getPatientList().get(i).getPatientID());
             if (iD == patientid) {
-                pList.getPatientList().get(i).setName(name);
+                pList.getPatientList().get(i).setName(txtName.getText());
                 pList.getPatientList().get(i).setAge(age1);
-                pList.getPatientList().get(i).setEmail(email);
+                pList.getPatientList().get(i).setEmail(txtEmail.getText());
                 pList.getPatientList().get(i).getHouse().setHouseNumber(houseNo);
                 //TODO other details
 
             }
         }
         populateTable();
-        }
+    }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
         String id = txtPatientID.getText();
-        if (Pattern.compile("^[1-9]\\d*$").matcher(id).matches() && !id.equals("")) {
-            Integer iD = Integer.parseInt(id);
-            for (int i = 0; i < pList.getPatientList().size(); i++) {
-                int patientid = (pList.getPatientList().get(i).getPatientID());
-                if (iD == patientid) {
-                    txtName.setText(pList.getPatientList().get(i).getName());
-                    txtAge.setText(pList.getPatientList().get(i).getAge().toString());
-                    //txtPatCity.setText(history.getpatientDirectory().get(i));
-                    txtEmail.setText(pList.getPatientList().get(i).getEmail());
-                    txtHouse.setText(pList.getPatientList().get(i).getHouse().getHouseNumber());
-                    //TODO other details
-                }
+            if (Pattern.compile("^[1-9]\\d*$").matcher(id).matches() && !id.equals("")) {
+        Integer iD = Integer.parseInt(id);
+        for (int i = 0; i < pList.getPatientList().size(); i++) {
+            int patientid = (pList.getPatientList().get(i).getPatientID());
+            if (iD == patientid) {
+                txtName.setText(pList.getPatientList().get(i).getName());
+                txtAge.setText(pList.getPatientList().get(i).getAge().toString());
+                //txtPatCity.setText(history.getpatientDirectory().get(i));
+                txtEmail.setText(pList.getPatientList().get(i).getEmail());
+                txtHouse.setText(pList.getPatientList().get(i).getHouse().getHouseNumber());
+                //TODO other details
             }
         }
-        else{
-            JOptionPane.showMessageDialog(this," Patient ID is not valid.\\nOnly Numbers are allowed..","ERROR",JOptionPane.ERROR_MESSAGE);
-        }
+       }
+            else{
+                JOptionPane.showMessageDialog(this, "Patient ID field is not valid. Only numbers are allowed.", "Alert", JOptionPane.WARNING_MESSAGE);
+
+            }
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

@@ -11,7 +11,7 @@ import secondAssignment.system.model.login.LoginList;
 
 /**
  *
- * @author shubhamjain
+ * @author sweta
  */
 public class AddLogin extends javax.swing.JFrame {
 
@@ -47,7 +47,6 @@ public class AddLogin extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(102, 255, 51));
         setLocation(new java.awt.Point(280, 150));
         setUndecorated(true);
 
@@ -164,18 +163,18 @@ public class AddLogin extends javax.swing.JFrame {
                         System.out.println("Name is valid.");
                         return true;
                     } else {
-                        JOptionPane.showMessageDialog(frame, "Name field is not valid.\\nOnly characters and spaces are allowed.", "Alert", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(frame, "Name field is not valid. Only characters and spaces are allowed.", "Alert", JOptionPane.WARNING_MESSAGE);
                     }
                 } else {
                     JOptionPane.showMessageDialog(frame, "Password field is not in specified format", "Alert", JOptionPane.WARNING_MESSAGE);
                 }
             } else {
-                JOptionPane.showMessageDialog(frame, "Username field is not valid.\\nOnly characters and spaces are allowed.", "Alert", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(frame, "Username field is not valid. Only characters and spaces are allowed.", "Alert", JOptionPane.WARNING_MESSAGE);
 
             }
 
         } else {
-            JOptionPane.showMessageDialog(frame, "Role field is not valid.\\nOnly characters and spaces are allowed.", "Alert", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(frame, "Role field is not valid. Only characters and spaces are allowed.", "Alert", JOptionPane.WARNING_MESSAGE);
         }
         return false;
     }
@@ -204,6 +203,7 @@ public class AddLogin extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error");
         }
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -7,13 +7,19 @@ package secondAssignment.system.ui.community;
 import javax.swing.JOptionPane;
 import secondAssignment.system.model.login.LoginList;
 import secondAssignment.system.person.City;
+
+import secondAssignment.system.person.DoctorDirectory;
+
 import secondAssignment.system.person.PatientDirectory;
 import secondAssignment.system.ui.Login;
 import secondAssignment.system.ui.ViewAbnormality;
+import secondAssignment.system.ui.community.model.CityStore;
+import secondAssignment.system.ui.community.model.CommunityStore;
+import secondAssignment.system.ui.community.model.HouseStore;
 
 /**
  *
- * @author shubhamjain
+ * @author sweta
  */
 public class CommintyAdmin extends javax.swing.JFrame {
 
@@ -22,12 +28,17 @@ public class CommintyAdmin extends javax.swing.JFrame {
      */
     LoginList lgnList;
     PatientDirectory patientList;
+    DoctorDirectory doctorList;
     City city;
-    public CommintyAdmin(LoginList lgnList,PatientDirectory patientList,City city) {
+
+    
+    public CommintyAdmin(LoginList lgnList,PatientDirectory patientList,City city,DoctorDirectory doctorList) {
         initComponents();
          this.lgnList = lgnList;
          this.city = city;
          this.patientList = patientList;
+         this.doctorList = doctorList;
+       
     }
 
     /**
@@ -42,8 +53,7 @@ public class CommintyAdmin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnLogOut = new javax.swing.JButton();
         btnAbnormality = new javax.swing.JButton();
-        btnCreateCommunity = new javax.swing.JButton();
-        btnCreateCommunity1 = new javax.swing.JButton();
+        AddCity = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,17 +74,10 @@ public class CommintyAdmin extends javax.swing.JFrame {
             }
         });
 
-        btnCreateCommunity.setText("Add City, Community, House");
-        btnCreateCommunity.addActionListener(new java.awt.event.ActionListener() {
+        AddCity.setText("Add City,Community,House");
+        AddCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateCommunityActionPerformed(evt);
-            }
-        });
-
-        btnCreateCommunity1.setText("Update City, Community, House");
-        btnCreateCommunity1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateCommunity1ActionPerformed(evt);
+                AddCityActionPerformed(evt);
             }
         });
 
@@ -95,10 +98,7 @@ public class CommintyAdmin extends javax.swing.JFrame {
                         .addComponent(btnAbnormality, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnCreateCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnCreateCommunity1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(AddCity, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(1100, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -106,13 +106,11 @@ public class CommintyAdmin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel1)
-                .addGap(27, 27, 27)
-                .addComponent(btnCreateCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCreateCommunity1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(141, 141, 141)
+                .addComponent(AddCity, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnAbnormality, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 458, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 392, Short.MAX_VALUE)
                 .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
@@ -126,23 +124,19 @@ public class CommintyAdmin extends javax.swing.JFrame {
         if (a == 0) {
             setVisible(false);
 
-            new Login( lgnList,patientList,city).setVisible(true);
+            new Login( lgnList,patientList,city,doctorList).setVisible(true);
         }
     }//GEN-LAST:event_btnLogOutActionPerformed
 
     private void btnAbnormalityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbnormalityActionPerformed
         // TODO add your handling code here:
-        new ViewAbnormality( patientList,  city).setVisible(true);
+        new ViewAbnormality( patientList,  city,doctorList).setVisible(true);
     }//GEN-LAST:event_btnAbnormalityActionPerformed
 
-    private void btnCreateCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateCommunityActionPerformed
+    private void AddCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCityActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnCreateCommunityActionPerformed
-
-    private void btnCreateCommunity1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateCommunity1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCreateCommunity1ActionPerformed
+        new CreateCity( ).setVisible(true);
+    }//GEN-LAST:event_AddCityActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,9 +174,8 @@ public class CommintyAdmin extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddCity;
     private javax.swing.JButton btnAbnormality;
-    private javax.swing.JButton btnCreateCommunity;
-    private javax.swing.JButton btnCreateCommunity1;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

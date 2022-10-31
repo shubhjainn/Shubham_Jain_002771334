@@ -7,6 +7,7 @@ package secondAssignment.system.ui;
 import javax.swing.table.DefaultTableModel;
 import secondAssignment.system.person.City;
 import secondAssignment.system.person.Community;
+import secondAssignment.system.person.DoctorDirectory;
 import secondAssignment.system.person.Encounter;
 import secondAssignment.system.person.EncounterHistory;
 import secondAssignment.system.person.Patient;
@@ -14,7 +15,7 @@ import secondAssignment.system.person.PatientDirectory;
 
 /**
  *
- * @author shubhamjain
+ * @author sweta
  */
 public class ViewAbnormality extends javax.swing.JFrame {
 
@@ -23,10 +24,12 @@ public class ViewAbnormality extends javax.swing.JFrame {
      */
      PatientDirectory pList;
     City city;
-    public ViewAbnormality(PatientDirectory pList, City city) {
+    DoctorDirectory dlist;
+    public ViewAbnormality(PatientDirectory pList, City city,DoctorDirectory dlist) {
         initComponents();
          this.pList = pList;
         this.city=city;
+        this.dlist = dlist;
     }
 
     /**

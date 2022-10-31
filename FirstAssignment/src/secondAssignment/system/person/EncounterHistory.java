@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author shubhamjain
+ * @author sweta
  */
 public class EncounterHistory {
      private List<Encounter> encounterHistory;

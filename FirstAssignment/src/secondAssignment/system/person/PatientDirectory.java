@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author shubhamjain
+ * @author sweta
  */
 public class PatientDirectory {
      private ArrayList<Patient> patientList;

@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import secondAssignment.system.person.City;
+import secondAssignment.system.person.DoctorDirectory;
 import secondAssignment.system.person.Encounter;
 import secondAssignment.system.person.EncounterHistory;
 import secondAssignment.system.person.PatientDirectory;
@@ -16,7 +17,7 @@ import secondAssignment.system.person.VitalSigns;
 
 /**
  *
- * @author shubhamjain
+ * @author sweta
  */
 public class AddDiagnosisInformation extends javax.swing.JFrame {
 
@@ -26,11 +27,13 @@ public class AddDiagnosisInformation extends javax.swing.JFrame {
      */
     PatientDirectory history;
     City city;
+    DoctorDirectory dlist;
 
-    public AddDiagnosisInformation(PatientDirectory history, City city) {
+    public AddDiagnosisInformation(PatientDirectory history, City city, DoctorDirectory dlist) {
         initComponents();
         this.history = history;
         this.city = city;
+        this.dlist = dlist;
 //        lblHidden.setVisible(false);
 //        lblWardType.setVisible(false);
 //        cmbTypeWard.setVisible(false);
@@ -219,6 +222,7 @@ public class AddDiagnosisInformation extends javax.swing.JFrame {
 //            cmbTypeWard.setVisible(false);
 //        }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
+
     public static boolean addDiagnosisInfoclientSideValidation(javax.swing.JFrame frame, String id, String pulse, String bt, String respiration, String weight, String bp) {
         if (Pattern.compile("^[1-9]\\d*$").matcher(id).matches() && !id.equals("")) {
             System.out.println("Patient ID field is valid.");
@@ -236,26 +240,27 @@ public class AddDiagnosisInformation extends javax.swing.JFrame {
                                 return true;
 
                             } else {
-                                JOptionPane.showMessageDialog(frame, "Temperature field is not valid.\\nOnly Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
+                                JOptionPane.showMessageDialog(frame, "Temperature field is not valid. Only Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
                             }
                         } else {
-                            JOptionPane.showMessageDialog(frame, "Weight field is not valid.\\nOnly Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
+                            JOptionPane.showMessageDialog(frame, "Weight field is not valid. Only Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
                         }
 
                     } else {
-                        JOptionPane.showMessageDialog(frame, "Heart rate field is not valid.\\nOnly Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(frame, "Heart rate field is not valid. Only Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
                     }
                 } else {
-                    JOptionPane.showMessageDialog(frame, "Blood pressure field is not valid.\\nOnly Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(frame, "Blood pressure field is not valid. Only Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
                 }
             } else {
-                JOptionPane.showMessageDialog(frame, "Respiration field is not valid.\\nOnly Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(frame, "Respiration field is not valid. Only Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
             }
         } else {
-            JOptionPane.showMessageDialog(frame, " Patient ID field is not valid.\\nOnly Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(frame, " Patient ID field is not valid. Only Numbers are allowed..", "Alert", JOptionPane.WARNING_MESSAGE);
         }
         return false;
     }
+
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
@@ -271,12 +276,12 @@ public class AddDiagnosisInformation extends javax.swing.JFrame {
         boolean passed = addDiagnosisInfoclientSideValidation(this, id, pulse, bt, respiration, weight, bp);
 
         Integer id1 = Integer.parseInt(txtPatientID.getText());
+
         Integer bp1 = Integer.parseInt(txtBloodPressure.getText());
         Integer pulse1 = Integer.parseInt(txtHeartRate.getText());
         Integer bt1 = Integer.parseInt(txtTemperature.getText());
         Integer respiration1 = Integer.parseInt(txtResperatory.getText());
         Integer weight1 = Integer.parseInt(txtWeight.getText());
-
 //            String wardReq;
 //            String typeWard;
 //            if (jCheckBox1.isSelected()) {
@@ -288,7 +293,6 @@ public class AddDiagnosisInformation extends javax.swing.JFrame {
 //            }
         // try {
         if (passed) {
-
             for (int i = 0; i < history.getPatientList().size(); i++) {
                 int patientid = (history.getPatientList().get(i).getPatientID());
                 if (id1 == patientid) {
@@ -301,7 +305,7 @@ public class AddDiagnosisInformation extends javax.swing.JFrame {
                     //update the info to that patient
                     JOptionPane.showMessageDialog(null, "succesfully updated");
                     setVisible(false);
-                    new AddDiagnosisInformation(history, city).setVisible(true);
+                    new AddDiagnosisInformation(history, city, dlist).setVisible(true);
                     // }
 //                }
 //                    }catch(Exception e){

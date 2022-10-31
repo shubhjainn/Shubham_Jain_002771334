@@ -39,11 +39,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnCreateCommunity" min="-2" pref="227" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnCreateCommunity1" min="-2" pref="227" max="-2" attributes="0"/>
+                      <Component id="AddCity" min="-2" pref="227" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="1100" max="32767" attributes="0"/>
@@ -55,13 +51,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="btnCreateCommunity" min="-2" pref="54" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnCreateCommunity1" min="-2" pref="54" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
+              <Component id="AddCity" min="-2" pref="54" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnAbnormality" min="-2" pref="54" max="-2" attributes="0"/>
-              <EmptySpace pref="458" max="32767" attributes="0"/>
+              <EmptySpace pref="392" max="32767" attributes="0"/>
               <Component id="btnLogOut" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
           </Group>
@@ -93,20 +87,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAbnormalityActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnCreateCommunity">
+    <Component class="javax.swing.JButton" name="AddCity">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Add City, Community, House"/>
+        <Property name="text" type="java.lang.String" value="Add City,Community,House"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateCommunityActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnCreateCommunity1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Update City, Community, House"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateCommunity1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddCityActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

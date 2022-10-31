@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import secondAssignment.system.model.login.Credentials;
 import secondAssignment.system.model.login.LoginList;
 import secondAssignment.system.person.City;
+import secondAssignment.system.person.DoctorDirectory;
 import secondAssignment.system.person.PatientDirectory;
 import secondAssignment.system.ui.Doctor.Doctor;
 import secondAssignment.system.ui.community.CommintyAdmin;
@@ -18,7 +19,7 @@ import secondAssignment.system.ui.patient.Patient;
 
 /**
  *
- * @author shubhamjain
+ * @author sweta
  */
 public class Login extends javax.swing.JFrame {
 
@@ -26,13 +27,16 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     LoginList lgnList;
- PatientDirectory patientList;
+    PatientDirectory patientList;
     City city;
-    public Login(LoginList lgnList,PatientDirectory patientList, City city ) {
+    DoctorDirectory doctorList;
+
+    public Login(LoginList lgnList, PatientDirectory patientList, City city, DoctorDirectory doctorList) {
         initComponents();
         this.lgnList = lgnList;
-         this.city = city;
-         this.patientList = patientList;
+        this.city = city;
+        this.patientList = patientList;
+        this.doctorList = doctorList;
     }
 
     /**
@@ -139,114 +143,107 @@ public class Login extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnCloseActionPerformed
-public static boolean loginPageclientSideValidation(javax.swing.JFrame frame, String userName, String passWord){
-      if(Pattern.compile("^[a-zA-Z\\s]*$").matcher(userName).matches() && !userName.equals("")){
-        System.out.println("User name is valid.");
-         if(
-                 //Pattern.compile("^[a-zA-Z\\s]*$").matcher(passWord).matches() && 
-                 !passWord.equals("")){
-           System.out.println("Password is valid.");
-           return true;
-         }
-         else
-         {
-            JOptionPane.showMessageDialog(frame, "Password field is not in specified format", "Alert", JOptionPane.WARNING_MESSAGE);
-         }
-      }
-      else
-      {
-        JOptionPane.showMessageDialog(frame, "User Name is not valid. Only characters and spaces are allowed.", "Alert", JOptionPane.WARNING_MESSAGE);
-      }
-      return false;
+    public static boolean loginPageclientSideValidation(javax.swing.JFrame frame, String userName, String passWord) {
+        if (Pattern.compile("^[a-zA-Z\\s]*$").matcher(userName).matches() && !userName.equals("")) {
+            System.out.println("User name is valid.");
+            if ( //Pattern.compile("^[a-zA-Z\\s]*$").matcher(passWord).matches() && 
+                    !passWord.equals("")) {
+                System.out.println("Password is valid.");
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(frame, "Password field is empty", "Alert", JOptionPane.WARNING_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(frame, "User Name is not valid. Only characters and spaces are allowed.", "Alert", JOptionPane.WARNING_MESSAGE);
+        }
+        return false;
     }
+    
+    
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         String userName = txtUserName.getText();
         String passWord = pwdPassword.getText();
-        boolean passed = loginPageclientSideValidation(this,userName,passWord);
-       
+        boolean passed = loginPageclientSideValidation(this, userName, passWord);
+
         ArrayList<Credentials> emp = new ArrayList<Credentials>();
-          if(passed){
-        for (Credentials cred : lgnList.getLoginList()) {
-            //for (int i = 0; i < lgnList.getLoginList().size(); i++) {
-            String userNm = (cred.getUserName());
-            String pwd = (cred.getPassWord());
-            System.out.println(pwd);
-            
-            String role = (cred.getRole());
-            emp.add(cred);
-            System.out.println(emp.toString());
-            
-        
-             
-            if (userName.equals(userNm) && passWord.equals(pwd) && role.contains("doctor")) {
-                setVisible(false);
-                System.out.println(userNm);
-                new Doctor(lgnList,patientList,city).setVisible(true);
+        if (passed) {
+            for (Credentials cred : lgnList.getLoginList()) {
+                //for (int i = 0; i < lgnList.getLoginList().size(); i++) {
+                String userNm = (cred.getUserName());
+                String pwd = (cred.getPassWord());
+                System.out.println(pwd);
 
-            } else if (userName.equals(userNm) && passWord.equals(pwd) && role.contains("patient")) {
-                setVisible(false);
-                System.out.println(userNm);
-                new Patient(lgnList,patientList,city).setVisible(true);
+                String role = (cred.getRole());
+                emp.add(cred);
+                System.out.println(emp.toString());
 
-            } else if (userName.equals(userNm) && passWord.equals(pwd) && role.contains("hospital admin")) {
-                setVisible(false);
-                new HospitalAdmin(lgnList,patientList,city).setVisible(true);
+                if (userName.equals(userNm) && passWord.equals(pwd) && role.contains("doctor")) {
+                    setVisible(false);
+                    System.out.println(userNm);
+                    new Doctor(lgnList, patientList, city, doctorList).setVisible(true);
 
-            } else if (userName.equals(userNm) && passWord.equals(pwd) && role.contains("community admin")) {
-                setVisible(false);
-                new CommintyAdmin(lgnList,patientList,city).setVisible(true);
+                } else if (userName.equals(userNm) && passWord.equals(pwd) && role.contains("patient")) {
+                    setVisible(false);
+                    System.out.println(userNm);
+                    new Patient(lgnList, patientList, city, doctorList).setVisible(true);
 
-            } else if (userName.equals(userNm) && passWord.equals(pwd) && role.contains("admin")) {
-                setVisible(false);
-                System.out.println(userNm);
-                new Home(lgnList).setVisible(true);
+                } else if (userName.equals(userNm) && passWord.equals(pwd) && role.contains("hospital admin")) {
+                    setVisible(false);
+                    new HospitalAdmin(lgnList, patientList, city, doctorList).setVisible(true);
 
+                } else if (userName.equals(userNm) && passWord.equals(pwd) && role.contains("community admin")) {
+                    setVisible(false);
+                    new CommintyAdmin(lgnList, patientList, city, doctorList).setVisible(true);
+
+                } else if (userName.equals(userNm) && passWord.equals(pwd) && role.contains("admin")) {
+                    setVisible(false);
+                    System.out.println(userNm);
+                    new Home(lgnList).setVisible(true);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "User doesn't exist. Please create a new user", "Alert", JOptionPane.WARNING_MESSAGE);
+                }
             }
-//            else{
-//                JOptionPane.showMessageDialog(null, "User doesn't exist. Please create a new user", "Alert", JOptionPane.WARNING_MESSAGE);
-//
-//            }
         }
-          }
 
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
-         * @param args the command line arguments
-         */
-        //    public static void main(String args[]) {
-        //        /* Set the Nimbus look and feel */
-        //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        //        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-        //         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-        //         */
-        //        try {
-        //            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-        //                if ("Nimbus".equals(info.getName())) {
-        //                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-        //                    break;
-        //                }
-        //            }
-        //        } catch (ClassNotFoundException ex) {
-        //            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        //        } catch (InstantiationException ex) {
-        //            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        //        } catch (IllegalAccessException ex) {
-        //            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        //        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-        //            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        //        }
-        //        //</editor-fold>
-        //
-        //        /* Create and display the form */
-        //        java.awt.EventQueue.invokeLater(new Runnable() {
-        //            public void run() {
-        //                
-        //                new Login().setVisible(true);
-        //            }
-        //        });
-        //    }
+     * @param args the command line arguments
+     */
+    //    public static void main(String args[]) {
+    //        /* Set the Nimbus look and feel */
+    //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+    //        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+    //         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+    //         */
+    //        try {
+    //            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+    //                if ("Nimbus".equals(info.getName())) {
+    //                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+    //                    break;
+    //                }
+    //            }
+    //        } catch (ClassNotFoundException ex) {
+    //            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    //        } catch (InstantiationException ex) {
+    //            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    //        } catch (IllegalAccessException ex) {
+    //            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    //        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+    //            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    //        }
+    //        //</editor-fold>
+    //
+    //        /* Create and display the form */
+    //        java.awt.EventQueue.invokeLater(new Runnable() {
+    //            public void run() {
+    //                
+    //                new Login().setVisible(true);
+    //            }
+    //        });
+    //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClose;
